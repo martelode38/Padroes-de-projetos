@@ -1,5 +1,4 @@
 package decorato.decorator;
-// representa o combo base sem adicionais
 public class ComboBase implements ComboInterface {
     private String nome;
     private double valorBase;
