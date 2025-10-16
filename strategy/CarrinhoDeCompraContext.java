@@ -1,10 +1,11 @@
-import pagamento.FormaDePagamento;
 import java.util.ArrayList;
 
-public class CarrinhoDeCompraStrategy {
+import strategies.PagamentoInterface;
+
+public class CarrinhoDeCompraContext {
     private ArrayList<Produto> produtos;
 
-    public CarrinhoDeCompraStrategy() {
+    public CarrinhoDeCompraContext() {
         this.produtos = new ArrayList<>();
     }
 
@@ -12,7 +13,7 @@ public class CarrinhoDeCompraStrategy {
         this.produtos.add(produto);
     }
 
-    public String calcularValor(FormaDePagamento formaDePagamento) {
+    public String calcularValor(PagamentoInterface formaDePagamento) {
         double valor = 0;
         for (Produto produto : produtos) {
             valor += produto.getPreco();

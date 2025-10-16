@@ -3,7 +3,7 @@ package decorato.decorator;
 public class QueijoExtra extends PedidoDecorator {
     private static final double PRECO_QUEIJO = 2.0;
     
-    public QueijoExtra(ComboBase comboBase) {
+    public QueijoExtra(ComboInterface comboBase) {
         super(comboBase);
     }
 

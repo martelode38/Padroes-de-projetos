@@ -1,6 +1,6 @@
-package pagamento;
+package strategies;
 
-public class Debito implements FormaDePagamento {
+public class DebitoStrategy implements PagamentoInterface {
     @Override
     public String processar(double valor) {
         double valorFinal = valor * 0.9;

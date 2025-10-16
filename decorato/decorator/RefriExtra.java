@@ -3,7 +3,7 @@ package decorato.decorator;
 public class RefriExtra extends PedidoDecorator {
     private static final double PRECO_REFRI = 2.0;
     
-    public RefriExtra(ComboBase comboBase) {
+    public RefriExtra(ComboInterface comboBase) {
         super(comboBase);
     }
 

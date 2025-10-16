@@ -3,7 +3,7 @@ package decorato.decorator;
 public class SaladaExtra extends PedidoDecorator {
     private static final double PRECO_SALADA = 1.5;
     
-    public SaladaExtra(ComboBase comboBase) {
+    public SaladaExtra(ComboInterface comboBase) {
         super(comboBase);
     }
 

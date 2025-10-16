@@ -1,9 +1,9 @@
 package decorato.decorator;
 
-public abstract class PedidoDecorator implements ComboBase {
-    protected ComboBase comboHamburguer;
+public abstract class PedidoDecorator implements ComboInterface {
+    protected ComboInterface comboHamburguer;
     
-    public PedidoDecorator(ComboBase combo) {
+    public PedidoDecorator(ComboInterface combo) {
         this.comboHamburguer = combo;
     }
     

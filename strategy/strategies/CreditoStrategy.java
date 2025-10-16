@@ -1,6 +1,6 @@
-package pagamento;
+package strategies;
 
-public class Credito implements FormaDePagamento {
+public class CreditoStrategy implements PagamentoInterface {
     @Override
     public String processar(double valor) {
         double valorFinal = valor * 1.1;
