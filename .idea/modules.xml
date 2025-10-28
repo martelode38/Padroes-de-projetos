@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Padroes_de_persistencia/Padroes_de_persistencia.iml" filepath="$PROJECT_DIR$/Padroes_de_persistencia/Padroes_de_persistencia.iml" />
       <module fileurl="file://$PROJECT_DIR$/questão 2.iml" filepath="$PROJECT_DIR$/questão 2.iml" />
     </modules>
   </component>
