@@ -1,25 +1,42 @@
+import aggregate.UserAggregate;
 import model.User;
 import repository.UserRepository;
 import repository.UserRepositoryImpl;
 
 public class MainTestRepository {
     public static void main(String[] args) {
-        UserRepository userRepo = new UserRepositoryImpl();
+        UserRepository userRepository = new UserRepositoryImpl();
 
-        User u1 = new User(null, "Marcos", "marcos@email.com", "123");
-        User u2 = new User(null, "Ana", "ana@email.com", "456");
+        // cria e salva um usuário válido
+        try {
+            User validUser = new User(null, "Marcos", "marcos@email.com", "123456");
+            UserAggregate aggregate = new UserAggregate(validUser);
+            userRepository.save(aggregate.getUser());
+            System.out.println("Usuário válido salvo com sucesso!");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro ao salvar usuário válido: " + e.getMessage());
+        }
 
-        userRepo.save(u1);
-        userRepo.save(u2);
+        // tentar criar usuário com e-mail inválido 
+        try {
+            User invalidEmailUser = new User(null, "João", "joaoemail.com", "654321");
+            UserAggregate aggregate = new UserAggregate(invalidEmailUser);
+            userRepository.save(aggregate.getUser());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro esperado: " + e.getMessage());
+        }
 
-        System.out.println("\nTodos os usuários:");
-        userRepo.findAll().forEach(System.out::println);
+        //  tentar criar usuário com senha curta
+        try {
+            User shortPasswordUser = new User(null, "Ana", "ana@email.com", "123");
+            UserAggregate aggregate = new UserAggregate(shortPasswordUser);
+            userRepository.save(aggregate.getUser());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro esperado: " + e.getMessage());
+        }
 
-        System.out.println("\nBuscando ID 1:");
-        userRepo.findById(1).ifPresent(System.out::println);
-
-        userRepo.delete(2);
-        System.out.println("\nApós remover Ana:");
-        userRepo.findAll().forEach(System.out::println);
+        // listar todos os usuários válidos
+        System.out.println("\nUsuários salvos:");
+        userRepository.findAll().forEach(System.out::println);
     }
 }
