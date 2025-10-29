@@ -11,7 +11,7 @@ public class MainTestMapper {
         UserDTO dto = Usermapper.toDTO(user);
         System.out.println("Convertido para DTO: " + dto);
 
-        // DTO → Entidade (senha vem de fora)
+        // DTO → Entidade
         User user2 = Usermapper.toEntity(dto, "12345");
         System.out.println("Convertido de volta para User: " + user2);
     }
